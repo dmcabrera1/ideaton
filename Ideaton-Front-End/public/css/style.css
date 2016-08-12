@@ -1,0 +1,129 @@
+
+
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+
+.logo-teleton {
+	background-image: url(../img/teleton.png);
+	background-size:contain;
+	background-repeat:no-repeat;
+	width:135px;
+	height:40px;
+	display:block;
+	margin:5px;
+}
+
+.wrapper {
+  padding: 60px 15px 0;
+}
+
+.footer-wrap {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+}
+
+#menuprc li a:hover {
+  color: #ed1c24;
+}
+
+.rojo {
+	color:#c4281b;
+}
+
+.navbar-default {
+  background-color: #fff;
+  border-color: #c4281b;
+  border-top:none;
+  border-left:none;
+  border-right:none;
+  border-radius:0px;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+  color: #fff;
+  background-color: #c4281b;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color:  #c4281b;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+  color: #c4281b;
+  background-color: transparent;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #c4281b;
+  border-color: #ed1c24;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #ed1c24;
+  border-color: #ed1c24;
+}
+
+.footer-wrap {
+	background-color: #c4281b;
+}
+
+.footer {
+	color:#fff;
+}
+
+.footer a {
+	color:#fff!important;
+	text-decoration:underline;
+	text-transform:uppercase;
+	font-size:9px;
+}
+
+h3 {
+	text-transform: uppercase;
+	font-size:20px;
+}
+
+.label {
+	color:#333;
+}
+
+.margin-bottom-10 {
+	margin-bottom:10px;
+}
+
+.form-control:focus {
+  border-color: #c4281b;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(196,40,27,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(196,40,27,.6);
+}
+
+.btn-primary.active, .btn-primary:active, .open>.dropdown-toggle.btn-primary {
+  color: #fff;
+  background-color:  #c4281b;
+  border-color:  #c4281b;
+}
+
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover {
+  color: #fff;
+  background-color:  #c4281b;
+  border-color:  #c4281b;
+}
+
+::-moz-selection { color:#fff; background:  #c4281b; }
+::selection { color:#fff; background:  #c4281b; }
+
+.btn {
+	border-radius:0px;
+}
+
