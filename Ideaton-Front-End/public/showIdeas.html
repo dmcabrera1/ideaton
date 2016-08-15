@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html ng-app="ideaton">
+<head>
+	<title>Listado de Ideas Ingresadas - Teletón</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="css/reset.css">
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<link href='https://fonts.googleapis.com/css?family=Raleway:400,700,300' rel='stylesheet' type='text/css'>
+	<link rel="shortcut icon" href="img/favicon.ico"/>
+</head>
+
+<body ng-app="springmvc-angular" ng-controller="ShowIdeasController" ng-init="getIdeas()">
+	<div class="container-fluid">
+		<div class="row">
+			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="logo-teleton" href="formulario.html"></a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse navbar-ex1-collapse">
+						<ul class="nav navbar-nav navbar-right">
+							<li class="active"><a href="#">Inicio</a></li>
+							<li ><a href="#">Lista de Ideas</a></li>
+							<li ><a href="#">Jurado</a></li>
+							<li ><a href="#">Somos</a></li>
+						</ul>
+					</div><!-- /.navbar-collapse -->
+				</div>
+			</nav>
+
+				<div class="container wrapper" ng-show="ideas != null">
+					<div class="col-md-12"><!-- Inicio Cuerpo Aplicación -->
+						<h3> Ideas actualmente ingresadas </h3>
+						<div class="row">
+
+						  <div class="col-xs-12 col-sm-12 col-md-4" ng-repeat="idea in ideas"><!--Modulo De Idea -->
+						    <div class="thumbnail">
+						      <img src="img/innovaton.jpg" alt="Imagen Principal Idea" class="img-responsive"> <!-- Reemplazar la imagen de la idea -->
+						      <div class="caption">
+						        <h4>{{idea.title == null ? 'Lorem Impsum' : idea.title}}</h4>
+						        <p>{{idea.description == null ? 'Lorem Impsum' : idea.description}}</p>
+						        <a href="viewIdeaDetail.html?id={{idea.id}}" class="btn btn-primary" role="button">Ver detalle</a>
+						      </div>
+						    </div>
+						  </div><!-- Cierre Modulo de Idea Individual -->
+
+						</div>
+					</div><!-- Cierre Cuerpo Aplicación -->
+				</div>
+
+				<div class="container-fluid footer-wrap">
+					<div class="container footer">
+						<div class="col-xs-4 col-sm-4 col-md-4">
+							<h5>Bases</h5>
+							<ul>
+								<li><a href="#">Ejemplo 1</a></li>
+								<li><a href="#">Ejemplo 2</a></li>
+								<li><a href="#">Ejemplo 3</a></li>
+								<li><a href="#">Ejemplo 4</a></li>
+							</ul>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-4">
+							<h5>Objetivos</h5>
+							<ul>
+								<li><a href="#">Ejemplo 1</a></li>
+								<li><a href="#">Ejemplo 2</a></li>
+								<li><a href="#">Ejemplo 3</a></li>
+								<li><a href="#">Ejemplo 4</a></li>
+							</ul>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-4">
+							<h5>Somos</h5>
+							<ul>
+								<li><a href="#">Ejemplo 1</a></li>
+								<li><a href="#">Ejemplo 2</a></li>
+								<li><a href="#">Ejemplo 3</a></li>
+								<li><a href="#">Ejemplo 4</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+		</div>
+	</div>
+
+
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular-resource.js"></script>
+	<script src="js/showIdeas.js"></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html ng-app="idea">
+<head>
+	<title>Agregar una idea - Teletón</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="css/reset.css">
+	<!-- Latest compiled and minified CSS & JS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<link href='https://fonts.googleapis.com/css?family=Raleway:400,700,300' rel='stylesheet' type='text/css'>
+	<link rel="shortcut icon" href="img/favicon.ico"/>
+</head>
+
+<body ng-app="springmvc-angular" ng-controller="addIdeaController">
+	<div class="container-fluid">
+		<div class="row">
+			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="logo-teleton" href="formulario.html"></a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse navbar-ex1-collapse">
+						<ul class="nav navbar-nav navbar-right">
+							<li class="active"><a href="#">Inicio</a></li>
+							<li ><a href="#">Lista de Ideas</a></li>
+							<li ><a href="#">Jurado</a></li>
+							<li ><a href="#">Somos</a></li>
+						</ul>
+					</div><!-- /.navbar-collapse -->
+				</div>
+			</nav>
+
+				<div class="container wrapper">
+					<div class="col-md-12"><!-- Inicio Cuerpo Aplicación -->
+						<div class="row">
+						  <div class="col-xs-12 col-sm-12 col-md-12">
+						  	<h3> Ingresa tu Idea </h3>
+						    <div class="thumbnail"><!--Modulo De Idea -->
+						      <!--<img src="img/innovaton.jpg" alt="Imagen Principal Idea" class="img-responsive">-->
+						      <div class="caption">
+						      	<form action="">
+							      	<span class="label">Titulo de la Idea</span>
+							        <input type="text" name="title" id="title" ng-model="title" class="form-control margin-bottom-10" value="" required="required" placeholder="Nombre de la Idea">
+
+							        <span class="label">Descripción de la Idea</span>
+							        <textarea name="description" id="description" ng-model="description" class="form-control margin-bottom-10" rows="3" required="required"></textarea>
+
+							        <span class="label">Selecciona la Categoría</span>
+							        <select name="category" id="category" ng-model="category" class="form-control margin-bottom-10" required="required">
+												<option value="ENTRETENCION">Entretención</option>
+									      <option value="EDUCACION">Educación</option>
+												<option value="TRNSPORTE_Y_ACCESIBILIDAD">Transporte y Accesibilidad</option>
+												<option value="TRABAJO">Trabajo</option>
+												<option value="COMUNICACIONES">Comunicaciones</option>
+												<option value="VIDA_DIARIA">Vida Diaria</option>
+							        </select>
+
+											<span class="label">Nombre</span>
+											<input type="text" name="firstName" id="firstName" ng-model="firstName" class="form-control margin-bottom-10" rows="3" required="required"></textarea>
+
+											<span class="label">Apellido</span>
+							        <input type="text" name="lastName" id="lastName" ng-model="lastName" class="form-control margin-bottom-10" rows="3" required="required"></textarea>
+
+											<span class="label">Correo Electrónico</span>
+							        <input type="text" name="email" id="email" ng-model="email" class="form-control margin-bottom-10" rows="3" required="required"></textarea>
+
+											<span class="label">Ciudad</span>
+							        <input type="text" name="city" id="city" ng-model="city" class="form-control margin-bottom-10" rows="3" required="required"></textarea>
+
+											<!--span class="label">Región</span>
+							        <input type="text" name="region" id="region" ng-model="region" class="form-control margin-bottom-10" rows="3" required="required"></textarea-->
+											<select name="region" id="region" ng-model="region" class="form-control margin-bottom-10" required="required">
+												<option value="1">XV - Arica y Parinacota</option>
+												<option value="2">I - Tarapacá</option>
+												<option value="3">II - Antofagasta</option>
+												<option value="4">III - Atacama</option>
+												<option value="5">IV - Coquimbo</option>
+												<option value="6">V - Valparaíso</option>
+												<option value="7" selected>RM - Metropolitana de Santiago</option>
+												<option value="8">VI - Libertador General Bernardo O'Higgins</option>
+												<option value="9">VII - Maule</option>
+												<option value="10">VIII - Bío-Bío</option>
+												<option value="11">IX - La Araucanía</option>
+												<option value="12">XIV - Los Ríos</option>
+												<option value="13">X - Los Lagos</option>
+												<option value="14">XI - Aisén del General Carlos Ibáñez del Campo</option>
+												<option value="15">XII - Magallanes y de la Antártica Chilena</option>
+											</select>
+
+											<span class="label">Pais</span>
+							        <input type="text" name="country" id="country" ng-model="country" class="form-control margin-bottom-10" rows="3" required="required"></textarea>
+
+							        <span class="label">Agregar URL Video</span>
+							        <input type="video" name="" id="video" ng-model="video" class="form-control margin-bottom-10" value="" required="required" placeholder="URL Video">
+
+							        <span class="label">Cargar Imagenes</span><div class="clearfix"></div>
+											<label class="btn btn-default btn-file margin-bottom-10">
+											    Subir imagen 1 <input type="file" style="display: none;">
+											</label>
+											<label class="btn btn-default btn-file margin-bottom-10">
+											    Subir imagen 2 <input type="file" style="display: none;">
+											</label>
+											<label class="btn btn-default btn-file margin-bottom-10">
+											    Subir imagen 3 <input type="file" style="display: none;">
+											</label>
+											<label class="btn btn-default btn-file margin-bottom-10">
+											    Subir imagen 4 <input type="file" style="display: none;">
+											</label><br>
+											<div class="text-center">
+							        	<!--a href="#" class="btn btn-primary text-right" role="button">Enviar Idea</a-->
+												<button id="addBtn" class="btn btn-primary text-right" ng-click="addIdea()">Enviar Idea</button>
+							      	</div>
+							      </form>
+						      </div>
+						    </div><!-- Cierre Modulo de Idea -->
+						  </div>
+						</div>
+					</div><!-- Cierre Cuerpo Aplicación -->
+					<h4>{{msg}}</h4>
+				</div>
+
+				<div class="container-fluid footer-wrap">
+					<div class="container footer">
+						<div class="col-xs-4 col-sm-4 col-md-4">
+							<h5>Bases</h5>
+							<ul>
+								<li><a href="#">Ejemplo 1</a></li>
+								<li><a href="#">Ejemplo 2</a></li>
+								<li><a href="#">Ejemplo 3</a></li>
+								<li><a href="#">Ejemplo 4</a></li>
+							</ul>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-4">
+							<h5>Objetivos</h5>
+							<ul>
+								<li><a href="#">Ejemplo 1</a></li>
+								<li><a href="#">Ejemplo 2</a></li>
+								<li><a href="#">Ejemplo 3</a></li>
+								<li><a href="#">Ejemplo 4</a></li>
+							</ul>
+						</div>
+						<div class="col-xs-4 col-sm-4 col-md-4">
+							<h5>Somos</h5>
+							<ul>
+								<li><a href="#">Ejemplo 1</a></li>
+								<li><a href="#">Ejemplo 2</a></li>
+								<li><a href="#">Ejemplo 3</a></li>
+								<li><a href="#">Ejemplo 4</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+		</div>
+	</div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular-resource.js"></script>
+	<script src="js/addIdea.js"></script>
+
+</body>
+</html>
