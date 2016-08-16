@@ -15,7 +15,7 @@
 	<link rel="shortcut icon" href="img/favicon.ico"/>
 </head>
 
-<body ng-app="springmvc-angular" ng-controller="ShowIdeasController" ng-init="getIdeas()">
+<body ng-app="springmvc-angular" ng-controller="IdeaDetailController" ng-init="getIdeaDetail()">
 	<div class="container-fluid">
 		<div class="row">
 			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -43,24 +43,24 @@
 				</div>
 			</nav>
 
-				<div class="container wrapper" ng-show="ideas != null">
+				<div class="container wrapper" ng-show="detalleIdea != null">
 					<div class="col-md-12"><!-- Inicio Cuerpo Aplicación -->
-						<h3> Ideas actualmente ingresadas </h3>
+						<h3> {{detalleIdea.title == null ? 'Lorem Impsum' : detalleIdea.title}} </h3>
 						<div class="row">
-
-						  <div class="col-xs-12 col-sm-12 col-md-4" ng-repeat="idea in ideas"><!--Modulo De Idea -->
-						    <div class="thumbnail">
-						      <img src="img/innovaton.jpg" alt="Imagen Principal Idea" class="img-responsive"> <!-- Reemplazar la imagen de la idea -->
-						      <div class="caption">
-						        <h4>{{idea.title == null ? 'Lorem Impsum' : idea.title}}</h4>
-						        <p>{{idea.description == null ? 'Lorem Impsum' : idea.description}}</p>
-						        <a href="viewIdeaDetail.html#?id={{idea.id}}" class="btn btn-primary" role="button">Ver detalle</a>
-						      </div>
-						    </div>
-						  </div><!-- Cierre Modulo de Idea Individual -->
-
+							<p>Descripción: {{detalleIdea.description == null ? 'Lorem Impsum' : detalleIdea.description}}</p>
+							<div ng-repeat="image in detalleIdea.images">
+								<div ng-show="image.link != null">
+									<img id="{{image.id}}" ng-src="{{image.link}}" alt="Imagen Principal Idea" class="img-responsive">
+								</div>
+							</div>
+							
+							<div class="cajadevideo" ng-if="detalleIdea.video != null">
+								<div class="video" ng-show="detalleIdea.video.link != null">
+									<iframe id="{{detalleIdea.video.id}}" ng-src="{{trustSrc(detalleIdea.video.link)}}"></iframe>
+								</div>
+							</div>
 						</div>
-					</div><!-- Cierre Cuerpo Aplicación -->
+					</div>
 				</div>
 
 				<div class="container-fluid footer-wrap">
@@ -101,6 +101,7 @@
 
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular-resource.js"></script>
-	<script src="js/showIdeas.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular-sanitize.js"></script>
+	<script src="js/ideaDetail.js"></script>
 </body>
 </html>
