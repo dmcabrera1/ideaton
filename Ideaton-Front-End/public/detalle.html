@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="ideaton">
 <head>
-	<title>Listado de Ideas Ingresadas - Teletón</title>
+	<title>Detalle - Teletón</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="stylesheet" href="css/reset.css">
@@ -12,10 +12,8 @@
 	<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	<link href='https://fonts.googleapis.com/css?family=Raleway:400,700,300' rel='stylesheet' type='text/css'>
-	<link rel="shortcut icon" href="img/favicon.ico"/>
 </head>
-
-<body ng-app="springmvc-angular" ng-controller="ShowIdeasController" ng-init="getIdeas()">
+<body ng-app="springmvc-angular" ng-controller="IdeaDetailController" ng-init="getIdeaDetail()">
 	<div class="container-fluid">
 		<div class="row">
 			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -30,9 +28,10 @@
 						</button>
 						<a class="logo-teleton" href="formulario.html"></a>
 					</div>
-
+			
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
+						
 						<ul class="nav navbar-nav navbar-right">
 							<li class="active"><a href="#">Inicio</a></li>
 							<li ><a href="#">Lista de Ideas</a></li>
@@ -43,22 +42,57 @@
 				</div>
 			</nav>
 
-				<div class="container wrapper" ng-show="ideas != null">
+				<div class="container wrapper" ng-show="detalleIdea != null">
 					<div class="col-md-12"><!-- Inicio Cuerpo Aplicación -->
-						<h3> Ideas actualmente ingresadas </h3>
 						<div class="row">
+						  <div class="col-xs-12 col-sm-12 col-md-12">
+						  	<h2> {{detalleIdea.title == null ? 'Lorem Impsum' : detalleIdea.title}} </h2>
+								<div class="row">
+									<div class="col-md-12  margin-bottom-20">
+										<img src="img/innovaton.jpg" alt="Imagen Principal Idea" class="img-responsive">
+									</div>
+									<div  ng-repeat="image in detalleIdea.images">
+										<div ng-show="image.link != null">
+											<div class="col-md-3">
+												<img id="{{image.id}}" ng-src="{{image.link}}" alt="Imagen Principal Idea" class="img-responsive">
+											</div>
+										</div>
+									</div>
+								</div>
 
-						  <div class="col-xs-12 col-sm-12 col-md-4" ng-repeat="idea in ideas"><!--Modulo De Idea -->
-						    <div class="thumbnail">
-						      <img src="img/innovaton.jpg" alt="Imagen Principal Idea" class="img-responsive"> <!-- Reemplazar la imagen de la idea -->
-						      <div class="caption">
-						        <h4>{{idea.title == null ? 'Lorem Impsum' : idea.title}}</h4>
-						        <p>{{idea.description == null ? 'Lorem Impsum' : idea.description}}</p>
-						        <a href="detalle.html#?id={{idea.id}}" class="btn btn-primary" role="button">Ver detalle</a>
-						      </div>
-						    </div>
-						  </div><!-- Cierre Modulo de Idea Individual -->
+							        <h3>Descripción</h3>
+							      	<p> {{detalleIdea.description == null ? 'Lorem Impsum' : detalleIdea.description}}.</p>
 
+										<div class="row">
+											<div class="col-md-4" ng-if="detalleIdea.video != null">
+												<h3>Tu Video</h3>
+												<iframe ng-show="detalleIdea.video.link != null" width="100%" height="315" id="{{detalleIdea.video.id}}" ng-src="{{trustSrc(detalleIdea.video.link)}}" frameborder="0" allowfullscreen></iframe>
+											</div>
+											<div class="col-md-4" ng-if="detalleIdea.uploadedBy != null">
+												<h3>Autor</h3>
+													<ul>
+														<li ng-show="detalleIdea.uploadedBy.firstName != null && detalleIdea.uploadedBy.lastName != null">{{detalleIdea.uploadedBy.firstName}} {{detalleIdea.uploadedBy.lastName}}</li>
+														<li ng-show="detalleIdea.uploadedBy.email != null">{{detalleIdea.uploadedBy.email}}</li>
+														<li ng-show="detalleIdea.uploadedBy.city != null">{{detalleIdea.uploadedBy.city}}</li>
+														<li ng-show="detalleIdea.uploadedBy.country != null">{{detalleIdea.uploadedBy.country}}</li>
+													</ul>
+											</div>
+											<div class="col-md-4" ng-if="detalleIdea.category != null">
+												<h3>Categoría</h3>
+												<p>{{detalleIdea.category}}</p>
+											</div>
+
+											<div class="col-md-12 margin-bottom-20">
+													<div class="text-center">
+														<a href="#" class="btn btn-primary text-right" role="button">Votar Por la Idea</a>
+													</div>
+											</div>
+										</div>
+							       							
+
+</div>
+
+						  </div>
 						</div>
 					</div><!-- Cierre Cuerpo Aplicación -->
 				</div>
@@ -94,13 +128,13 @@
 						</div>
 					</div>
 				</div>
-
+		
 		</div>
 	</div>
 
-
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular-resource.js"></script>
-	<script src="js/showIdeas.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular-sanitize.js"></script>
+	<script src="js/ideaDetail.js"></script>
 </body>
 </html>
